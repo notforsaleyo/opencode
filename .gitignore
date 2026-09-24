@@ -1,0 +1,55 @@
+# Track only explicitly selected, portable configuration and authored content.
+/*
+!/.gitignore
+!/README.md
+!/AGENTS.md
+!/opencode.json
+!/opencode.jsonc
+!/cli.json
+!/dcp.jsonc
+!/skills/
+!/backlog/
+!/custom-plugins/
+!/commands/
+!/agents/
+!/themes/
+
+# Dependencies, build output, caches and local machine state, at any depth.
+node_modules/
+dist/
+build/
+.cache/
+cache/
+logs/
+tmp/
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Credentials and local overrides.
+.env
+.env.*
+auth.json
+credentials.json
+service.json
+*.local.json
+*.local.jsonc
+*.pem
+*.key
+
+# No conversation/session databases, exports or snapshots.
+sessions/
+conversations/
+transcripts/
+snapshots/
+storage/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*

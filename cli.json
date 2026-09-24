@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "plugins": [
+    "/home/notforsaleyo/.config/opencode/custom-plugins/codex-usage-tui"
+  ],
+  "theme": {
+    "mode": "light",
+    "name": "github"
+  },
+  "session": {
+    "sidebar": "auto",
+    "thinking": "hide",
+    "markdown": "rendered",
+    "grouping": "auto",
+    "image_preview": false,
+    "tps": true,
+    "permissions": "prompt",
+    "scrollbar": true
+  },
+  "tabs": {
+    "mode": "on",
+    "layout": "vertical",
+    "indicators": "status",
+    "scope": "cwd"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true
+  },
+  "terminal": {
+    "title": true,
+    "copy": "select"
+  },
+  "debug": {
+    "devtools": false
+  },
+  "animations": true,
+  "prompt": {
+    "editor": true
+  },
+  "scroll": {
+    "acceleration": true
+  },
+  "keybinds": {
+    "session.new": "ctrl+t",
+    "variant.cycle": "ctrl+\\",
+    "input.submit": "ctrl+return",
+    "input.newline": "return,shift+return,ctrl+j",
+    "prompt.queue": "ctrl+shift+return"
+  },
+  "leader": {
+    "timeout": 2000
+  }
+}
