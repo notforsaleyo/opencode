@@ -39,8 +39,16 @@
     "acceleration": true
   },
   "keybinds": {
+    "session.list": "ctrl+s",
+    "session.child.first": "ctrl+down",
     "session.new": "ctrl+t",
     "variant.cycle": "ctrl+\\",
+    "session.first": "ctrl+g,alt+home",
+    "session.last": "ctrl+alt+g",
+    "input.line.home": "home,ctrl+a",
+    "input.line.end": "end,ctrl+e",
+    "input.buffer.home": "ctrl+home",
+    "input.buffer.end": "ctrl+end",
     "input.submit": "ctrl+return",
     "input.newline": "return,shift+return,ctrl+j",
     "prompt.queue": "ctrl+shift+return"
