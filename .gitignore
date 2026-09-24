@@ -3,9 +3,7 @@
 !/.gitignore
 !/README.md
 !/AGENTS.md
-!/opencode.json
-!/opencode.jsonc
-!/cli.json
+!/shared/
 !/dcp.jsonc
 !/skills/
 !/backlog/
@@ -13,6 +11,9 @@
 !/commands/
 !/agents/
 !/themes/
+
+# Machine-local Codex usage customization is not shared.
+/custom-plugins/codex-usage-tui/
 
 # Dependencies, build output, caches and local machine state, at any depth.
 node_modules/

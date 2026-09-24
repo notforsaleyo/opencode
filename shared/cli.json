@@ -1,8 +1,5 @@
 {
   "$schema": "https://opencode.ai/v2/cli.json",
-  "plugins": [
-    "/home/notforsaleyo/.config/opencode/custom-plugins/codex-usage-tui"
-  ],
   "theme": {
     "mode": "light",
     "name": "github"
