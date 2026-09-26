@@ -7,10 +7,18 @@
 !/dcp.jsonc
 !/skills/
 !/backlog/
+!/handoff/
 !/custom-plugins/
 !/commands/
 !/agents/
 !/themes/
+
+# Temporary handoffs contain only these two authored/exported JSON files.
+/handoff/*
+!/handoff/*/
+/handoff/*/*
+!/handoff/*/metadata.json
+!/handoff/*/session.json
 
 # Machine-local Codex usage customization is not shared.
 /custom-plugins/codex-usage-tui/
@@ -42,7 +50,7 @@ service.json
 *.pem
 *.key
 
-# No conversation/session databases, exports or snapshots.
+# Session transfer JSON is allowed only in /handoff/; no databases or snapshots.
 sessions/
 conversations/
 transcripts/
