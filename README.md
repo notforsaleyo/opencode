@@ -30,6 +30,7 @@ WezTerm은 각 컴퓨터에서 사용자가 별도로 설치합니다. 에이전
 - 원격 저장소는 `https://github.com/notforsaleyo/opencode.git`이다. Git과 원격 접근을 확인하고, 필요하면 설치·인증을 안내한다. 인증 정보는 파일이나 원격 URL에 기록하지 않는다.
 - 먼저 이 저장소의 `AGENTS.md`와 Git 상태·원격 연결을 확인한다. 기존 수정사항을 보존한다.
 - 대상 기기의 OS, OpenCode 버전, 실제 전역 설정 위치, 런타임과 설치된 확장을 조사한다. 이 저장소는 OpenCode V2 기준이며, 설정 방법은 해당 버전 공식 문서에서 확인한다.
+- 공유 CLI 설정의 `session.verbosity: "low"`는 OpenCode 2.0.17 이상이 필요하다. 이전 버전인 기기는 OpenCode를 업데이트한 뒤 공유 설정을 적용한다.
 - WSL에서는 OpenCode 서비스가 실행되는 Linux 사용자의 설정 위치를 대상으로 한다. 보통 `~/.config/opencode/`이며, 환경변수나 실행 설정으로 위치를 바꾸었는지 확인한다.
 
 ### 2. 전역 설정 폴더를 저장소 작업 폴더로 연결

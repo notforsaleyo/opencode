@@ -9,6 +9,7 @@
     "thinking": "hide",
     "markdown": "rendered",
     "grouping": "auto",
+    "verbosity": "low",
     "image_preview": false,
     "tps": true,
     "permissions": "prompt",
