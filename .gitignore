@@ -1,10 +1,12 @@
-# Track only explicitly selected, portable configuration and authored content.
+# Track only the Windows-native configuration and authored content.
 /*
 !/.gitignore
 !/README.md
 !/AGENTS.md
-!/shared/
+!/cli.json
+!/opencode.jsonc
 !/dcp.jsonc
+!/shared/
 !/skills/
 !/backlog/
 !/handoff/
@@ -19,9 +21,6 @@
 /handoff/*/*
 !/handoff/*/metadata.json
 !/handoff/*/session.json
-
-# Machine-local Codex usage customization is not shared.
-/custom-plugins/codex-usage-tui/
 
 # Dependencies, build output, caches and local machine state, at any depth.
 node_modules/

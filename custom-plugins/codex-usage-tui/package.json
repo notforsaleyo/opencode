@@ -1,0 +1,13 @@
+{
+  "name": "local-codex-usage-tui",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./tui": "./index.js"
+  },
+  "dependencies": {
+    "opencode-codex-usage": "2.2.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": [
+    "C:/Users/rkdtj/.config/opencode/custom-plugins/codex-usage-tui/node_modules/opencode-codex-usage/opencode2-plugin",
+    "@tarquinen/opencode-dcp@3.2.0"
+  ],
+  "mcp": {
+    "servers": {
+      "aseprite": {
+        "type": "local",
+        "disabled": true,
+        "command": [
+          "C:/Users/rkdtj/AppData/Local/diivi-aseprite-mcp/.venv/Scripts/python.exe",
+          "-m",
+          "aseprite_mcp"
+        ],
+        "environment": {
+          "ASEPRITE_PATH": "D:\\SteamLibrary\\steamapps\\common\\Aseprite\\Aseprite.exe"
+        }
+      }
+    }
+  }
+}

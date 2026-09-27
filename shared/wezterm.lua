@@ -37,7 +37,7 @@ config.colors = {
 
 config.window_background_opacity = 1
 
--- Windows launches use PowerShell; WSL remains available from the launcher.
+-- Start local PowerShell by default.
 local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
 config.default_prog = { powershell, '-NoLogo' }
 config.launch_menu = {
@@ -45,11 +45,6 @@ config.launch_menu = {
     label = 'PS',
     domain = { DomainName = 'local' },
     args = { powershell, '-NoLogo' },
-  },
-  {
-    label = 'WSL',
-    domain = { DomainName = 'WSL:Ubuntu-26.04' },
-    args = { '/bin/bash', '-lc', 'cd ~ && exec /bin/bash -l' },
   },
 }
 
@@ -73,9 +68,7 @@ wezterm.on('format-tab-title', function(tab)
       local process = (pane.foreground_process_name or ''):match('([^/\\]+)$') or ''
       local names = { ['pwsh.exe'] = 'PowerShell', ['powershell.exe'] = 'PowerShell' }
       title = names[process] or process:gsub('%.exe$', '')
-      if title == '' or title == 'wsl' or title == 'wslhost' then
-        title = (pane.domain_name or ''):match('^WSL:(.+)$') or pane.title or 'Terminal'
-      end
+      if title == '' then title = pane.title or 'Terminal' end
     end
     local cwd = pane.current_working_dir
     local folder = cwd and cwd.file_path:gsub('[/\\]+$', ''):match('([^/\\]+)$')
