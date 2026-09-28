@@ -15,7 +15,7 @@ Windows에서 직접 실행하는 **OpenCode V2 TUI**와 WezTerm의 개인 환�
 
 ## 다른 Windows 컴퓨터에서 복원
 
-Windows용 OpenCode V2 CLI(데스크톱 앱 아님), Git, Node.js를 설치하고 PowerShell에서 `opencode --version`과 `opencode debug paths`로 실행 파일·설정 위치를 확인합니다. Windows용 독립 실행 파일도 사용할 수 있습니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `CodexMono EA` 글꼴도 필요한 경우 별도로 설치합니다.
+Windows용 OpenCode V2 CLI(데스크톱 앱 아님), Git, Node.js를 설치하고 PowerShell에서 `opencode --version`과 `opencode debug paths`로 실행 파일·설정 위치를 확인합니다. Windows용 독립 실행 파일도 사용할 수 있습니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `CodexMono EA` 글꼴도 필요한 경우 별도로 설치합니다. 프롬프트 외부 편집기로 Sublime Text를 사용하며 `C:\Program Files\Sublime Text\subl.exe` 경로를 가정합니다.
 
 > https://github.com/notforsaleyo/opencode.git 저장소를 받아 README의 Windows 네이티브 환경 복원 지침을 적용해 주세요. 기존 로컬 설정을 보존하고 실제 전역 설정 폴더를 Git 작업 폴더로 만들어 주세요.
 
@@ -24,7 +24,7 @@ Windows용 OpenCode V2 CLI(데스크톱 앱 아님), Git, Node.js를 설치하�
 1. 이 저장소의 `AGENTS.md`, Git 상태, 원격, 대상 컴퓨터의 `opencode debug paths config` 결과를 확인합니다. 설정 폴더가 비어 있으면 그 자리에 clone합니다. 파일이 이미 있으면 저장소 밖에 백업해 차이를 검토·병합하고 **활성 설정 폴더 자체**가 이 Git 작업 폴더가 되게 합니다. 기존 인증·서비스 파일·세션을 덮어쓰거나 DB를 복사하지 않습니다. 미커밋 변경을 강제로 버리지 않습니다.
 2. 실제 `cli.json`, `opencode.jsonc`, `dcp.jsonc`를 검토해 Windows 사용자 프로필·프로젝트 경로가 다른 경우 조정합니다. `cli.json`은 TUI 전용이고 `opencode.jsonc`는 서비스·프로젝트 전역 설정입니다. 공유 파일에서 별도 복사할 필요는 없습니다. OpenCode 2.0.17 이상이 `session.verbosity: "low"`를 지원하며, 현재 기준 버전은 2.0.18입니다.
 3. `opencode.jsonc`의 DCP `@tarquinen/opencode-dcp@3.2.0`가 로드되는지 확인합니다. Codex 사용량 플러그인은 `custom-plugins/codex-usage-tui/`에서 `npm install --prefix <해당 폴더> --no-package-lock`로 의존성을 설치합니다. 설치된 패키지의 `opencode2-plugin` 경로가 `opencode.jsonc`의 서버 플러그인 참조와 일치해야 하고, `cli.json`의 TUI 래퍼 경로도 이 컴퓨터의 실제 경로로 맞춥니다. `node_modules/`는 Git에 추가하지 않습니다. 래퍼는 `/codex-usage` 명령을 유지하면서 자동 사용량 알림은 끕니다.
-4. `shared/wezterm.lua`를 실제 `%USERPROFILE%\.wezterm.lua`에 적용합니다. 기존 설정이 다르면 백업 후 필요한 부분을 병합합니다. PowerShell 설치 경로와 글꼴을 확인하고, 적용 후 WezTerm 설정 로딩과 단축키를 확인합니다. WezTerm이 없다면 적용 대기 상태로 보고합니다.
+4. `shared/wezterm.lua`를 실제 `%USERPROFILE%\.wezterm.lua`에 적용합니다. 기존 설정이 다르면 백업 후 필요한 부분을 병합합니다. PowerShell 설치 경로·글꼴·Sublime Text 경로를 확인하고, 적용 후 WezTerm 설정 로딩과 단축키를 확인합니다. WezTerm은 새 터미널에 `EDITOR`와 `VISUAL`을 전달하며, OpenCode에서는 `Ctrl+E` 또는 `Ctrl+X` 다음 `E`로 Sublime Text를 엽니다. 이미 실행 중인 OpenCode에는 적용되지 않으므로 새 터미널에서 다시 실행합니다. WezTerm이 없다면 적용 대기 상태로 보고합니다.
 5. Obsidian 스킬의 CLI 기능을 쓰려면 Windows Obsidian CLI가 별도로 설치되어야 합니다. `obsidian version`으로 확인합니다. `session-handoff` 스킬을 실행하려면 Windows Python 3.10 이상, Git 인증, OpenCode V2 관리형 로컬 서비스가 필요합니다. 환경 복원만으로 보관 대화를 자동으로 가져오지 않습니다.
 6. `opencode service status`, `opencode api get /api/info`로 Windows 서비스를 확인하고, 전역 스킬·DCP·Codex 플러그인 로딩 및 백로그 조회를 점검합니다. 다른 서비스와 기본 포트가 충돌할 때만 `opencode service set port <사용 가능한 포트>`로 Windows 서비스 포트를 별도 지정합니다. 인증이 필요하면 해당 컴퓨터에서 `/connect`로 로그인합니다. 검증용 세션·백로그 항목은 남기지 않습니다.
 

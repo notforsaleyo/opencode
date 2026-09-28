@@ -8,7 +8,7 @@
     "name": "github"
   },
   "session": {
-    "sidebar": "auto",
+    "sidebar": "hide",
     "thinking": "hide",
     "markdown": "rendered",
     "grouping": "auto",
@@ -26,7 +26,8 @@
   },
   "attention": {
     "notifications": true,
-    "sound": true
+    "sound": true,
+    "volume": 1
   },
   "terminal": {
     "title": true,
@@ -51,7 +52,8 @@
     "session.last": "ctrl+alt+g",
     "input.line.home": "home",
     "input.select.all": "ctrl+a,super+a",
-    "input.line.end": "end,ctrl+e",
+    "input.line.end": "end",
+    "prompt.editor": ["ctrl+e", "<leader>e"],
     "input.buffer.home": "ctrl+home",
     "input.buffer.end": "ctrl+end",
     "input.submit": "ctrl+return",

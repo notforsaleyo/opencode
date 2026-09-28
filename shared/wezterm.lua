@@ -39,6 +39,8 @@ config.window_background_opacity = 1
 
 -- Start local PowerShell by default.
 local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
+local sublime_editor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
+config.set_environment_variables = { EDITOR = sublime_editor, VISUAL = sublime_editor }
 config.default_prog = { powershell, '-NoLogo' }
 config.launch_menu = {
   {
