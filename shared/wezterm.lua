@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.font = wezterm.font_with_fallback { 'CodexMono EA' }
 config.font_size = 13.0
 
-config.color_scheme = 'Github Light (Gogh)'
+config.color_scheme = 'zenbones'
 config.colors = {
   tab_bar = {
     background = '#d8dee8',
