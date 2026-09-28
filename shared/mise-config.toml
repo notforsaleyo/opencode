@@ -1,4 +1,8 @@
 [tools]
 node = "latest"
 "npm:@fission-ai/openspec" = "latest"
+"npm:@opencode/cli" = { version = "latest", allow_builds = ["@opencode/cli"] }
 python = "latest"
+
+[settings.npm]
+package_manager = "npm"

@@ -7,7 +7,7 @@ opencode 설정할거 겁나 많아서 다른 컴퓨터에서 작업하는게 �
 
 # Windows 네이티브 OpenCode 환경
 
-Windows에서 직접 실행하는 **OpenCode V2 TUI**와 WezTerm의 개인 환경 저장소입니다. OpenCode 데스크톱 앱은 사용하지 않으며, Node.js·OpenSpec·Python은 mise로 관리합니다. 활성 전역 설정 폴더(`opencode debug paths config`) 자체가 이 Git 작업 폴더여야 합니다. 현재 컴퓨터에서는 `C:\Users\rkdtj\.config\opencode`입니다.
+Windows에서 직접 실행하는 **OpenCode V2 TUI**와 WezTerm의 개인 환경 저장소입니다. OpenCode 데스크톱 앱은 사용하지 않으며, OpenCode CLI·Node.js·OpenSpec·Python은 mise로 관리합니다. 활성 전역 설정 폴더(`opencode debug paths config`) 자체가 이 Git 작업 폴더여야 합니다. 현재 컴퓨터에서는 `C:\Users\rkdtj\.config\opencode`입니다.
 
 `cli.json`과 `opencode.jsonc`는 OpenCode가 **실제로 읽는 설정**이며 Git으로 추적합니다. `dcp.jsonc`, 전역 `AGENTS.md`, `skills/`, `backlog/`, Codex 사용량 플러그인 래퍼도 추적합니다. `shared/wezterm.lua`는 실제 `%USERPROFILE%\.wezterm.lua`와 동기화할 Windows WezTerm 설정본입니다. `shared/mise-config.toml`과 `shared/Microsoft.PowerShell_profile.ps1`은 실제 전역 mise 설정과 PowerShell 프로필의 복원용 사본입니다. 대화의 임시 전달은 `skills/session-handoff/`가 담당합니다.
 
@@ -15,15 +15,15 @@ Windows에서 직접 실행하는 **OpenCode V2 TUI**와 WezTerm의 개인 환�
 
 ## 다른 Windows 컴퓨터에서 복원
 
-Windows용 OpenCode V2 CLI(데스크톱 앱 아님), Git, mise를 설치하고 PowerShell에서 `opencode --version`과 `opencode debug paths`로 실행 파일·설정 위치를 확인합니다. 현재 OpenCode는 mise가 관리하지 않는 독립 실행 파일로 유지하고, Node.js·OpenSpec·Python은 mise로 관리합니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `CodexMono EA` 글꼴도 필요한 경우 별도로 설치합니다. 프롬프트 외부 편집기로 Sublime Text를 사용하며 `C:\Program Files\Sublime Text\subl.exe` 경로를 가정합니다.
+Git과 mise를 설치한 뒤 저장소의 mise 설정으로 Windows용 OpenCode V2 CLI(데스크톱 앱 아님)·Node.js·OpenSpec·Python을 설치합니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `CodexMono EA` 글꼴도 필요한 경우 별도로 설치합니다. 프롬프트 외부 편집기로 Sublime Text를 사용하며 `C:\Program Files\Sublime Text\subl.exe` 경로를 가정합니다.
 
 > https://github.com/notforsaleyo/opencode.git 저장소를 받아 README의 Windows 네이티브 환경 복원 지침을 적용해 주세요. 기존 로컬 설정을 보존하고 실제 전역 설정 폴더를 Git 작업 폴더로 만들어 주세요.
 
 에이전트용 절차:
 
-1. 이 저장소의 `AGENTS.md`, Git 상태, 원격, 대상 컴퓨터의 `opencode debug paths config` 결과를 확인합니다. 설정 폴더가 비어 있으면 그 자리에 clone합니다. 파일이 이미 있으면 저장소 밖에 백업해 차이를 검토·병합하고 **활성 설정 폴더 자체**가 이 Git 작업 폴더가 되게 합니다. 기존 인증·서비스 파일·세션을 덮어쓰거나 DB를 복사하지 않습니다. 미커밋 변경을 강제로 버리지 않습니다.
-   mise는 Windows에서 Scoop으로 설치할 수 있습니다(`scoop install mise`). 기존 `%USERPROFILE%\.config\mise\config.toml`과 PowerShell `$PROFILE`을 확인·백업하고, 저장소의 `shared/mise-config.toml`을 전역 mise 설정에, `shared/Microsoft.PowerShell_profile.ps1`의 활성화 줄을 PowerShell 프로필에 병합합니다. 다른 도구와 사용자 지정 프로필 내용은 보존합니다. PowerShell 외부에서도 mise 도구를 사용하려면 사용자 `Path`에 `%LOCALAPPDATA%\mise\shims`를 `WindowsApps`보다 앞에 추가합니다. 시스템 `Path`에 다른 Node.js가 먼저 있으면 이를 제거하기 전까지 shim보다 우선합니다. 새 PowerShell 및 프로필을 읽지 않는 새 셸에서 `mise install`, `mise doctor`, `node --version`, `openspec --version`, `python --version`으로 확인합니다. `latest`로 선언한 도구의 업그레이드는 `mise upgrade`로 수행합니다. OpenCode 설치 경로는 이 단계에서 바꾸지 않습니다.
-2. 실제 `cli.json`, `opencode.jsonc`, `dcp.jsonc`를 검토해 Windows 사용자 프로필·프로젝트 경로가 다른 경우 조정합니다. `cli.json`은 TUI 전용이고 `opencode.jsonc`는 서비스·프로젝트 전역 설정입니다. 공유 파일에서 별도 복사할 필요는 없습니다. OpenCode 2.0.17 이상이 `session.verbosity: "low"`를 지원하며, 현재 기준 버전은 2.0.18입니다.
+1. 이 저장소의 `AGENTS.md`, Git 상태, 원격, 대상 컴퓨터의 설정 경로를 확인합니다. OpenCode가 아직 설치되지 않았다면 기본 경로 `%USERPROFILE%\.config\opencode`를 사용하고, 설치 후 `opencode debug paths config`로 검증합니다. 설정 폴더가 비어 있으면 그 자리에 clone합니다. 파일이 이미 있으면 저장소 밖에 백업해 차이를 검토·병합하고 **활성 설정 폴더 자체**가 이 Git 작업 폴더가 되게 합니다. 기존 인증·서비스 파일·세션을 덮어쓰거나 DB를 복사하지 않습니다. 미커밋 변경을 강제로 버리지 않습니다.
+   mise는 Windows에서 Scoop으로 설치할 수 있습니다(`scoop install mise`). 기존 `%USERPROFILE%\.config\mise\config.toml`과 PowerShell `$PROFILE`을 확인·백업하고, 저장소의 `shared/mise-config.toml`을 전역 mise 설정에, `shared/Microsoft.PowerShell_profile.ps1`의 활성화 줄을 PowerShell 프로필에 병합합니다. 다른 도구와 사용자 지정 프로필 내용은 보존합니다. PowerShell 외부에서도 mise 도구를 사용하려면 사용자 `Path`에 `%LOCALAPPDATA%\mise\shims`를 `WindowsApps`보다 앞에 추가합니다. 시스템 `Path`에 다른 Node.js가 먼저 있으면 이를 제거하기 전까지 shim보다 우선합니다. 새 PowerShell에서 `mise install`, `mise doctor`, `opencode --version`, `opencode debug paths config`, `node --version`, `openspec --version`, `python --version`으로 확인하고, 프로필을 읽지 않는 새 셸에서도 shim 경로를 확인합니다. `@opencode/cli`는 설치 후 스크립트로 Windows 실행 파일을 선택하므로 mise 설정에서 해당 스크립트만 허용하고 npm 설치 방식을 지정합니다. `latest`로 선언한 도구의 업그레이드는 `mise upgrade`로 수행합니다.
+2. 실제 `cli.json`, `opencode.jsonc`, `dcp.jsonc`를 검토해 Windows 사용자 프로필·프로젝트 경로가 다른 경우 조정합니다. `cli.json`은 TUI 전용이고 `opencode.jsonc`는 서비스·프로젝트 전역 설정입니다. 공유 파일에서 별도 복사할 필요는 없습니다. OpenCode 2.0.17 이상이 `session.verbosity: "low"`를 지원합니다.
 3. `opencode.jsonc`의 DCP `@tarquinen/opencode-dcp@3.2.0`가 로드되는지 확인합니다. Codex 사용량 플러그인은 `custom-plugins/codex-usage-tui/`에서 `npm install --prefix <해당 폴더> --no-package-lock`로 의존성을 설치합니다. 설치된 패키지의 `opencode2-plugin` 경로가 `opencode.jsonc`의 서버 플러그인 참조와 일치해야 하고, `cli.json`의 TUI 래퍼 경로도 이 컴퓨터의 실제 경로로 맞춥니다. `node_modules/`는 Git에 추가하지 않습니다. 래퍼는 `/codex-usage` 명령을 유지하면서 자동 사용량 알림은 끕니다.
 4. `shared/wezterm.lua`를 실제 `%USERPROFILE%\.wezterm.lua`에 적용합니다. 기존 설정이 다르면 백업 후 필요한 부분을 병합합니다. PowerShell 설치 경로·글꼴·Sublime Text 경로를 확인하고, 적용 후 WezTerm 설정 로딩과 단축키를 확인합니다. WezTerm은 새 터미널에 `EDITOR`와 `VISUAL`을 전달하며, OpenCode에서는 `Ctrl+E` 또는 `Ctrl+X` 다음 `E`로 Sublime Text를 엽니다. 이미 실행 중인 OpenCode에는 적용되지 않으므로 새 터미널에서 다시 실행합니다. WezTerm이 없다면 적용 대기 상태로 보고합니다.
 5. Obsidian 스킬의 CLI 기능을 쓰려면 Windows Obsidian CLI가 별도로 설치되어야 합니다. `obsidian version`으로 확인합니다. `session-handoff` 스킬을 실행하려면 Windows Python 3.10 이상, Git 인증, OpenCode V2 관리형 로컬 서비스가 필요합니다. 환경 복원만으로 보관 대화를 자동으로 가져오지 않습니다.
@@ -32,5 +32,6 @@ Windows용 OpenCode V2 CLI(데스크톱 앱 아님), Git, mise를 설치하고 P
 ## 동기화와 관리
 
 - 실제 OpenCode 전역 설정 파일을 Git으로 직접 추적합니다. 변경 시 `cli.json`, `opencode.jsonc`, `dcp.jsonc`, 래퍼 소스와 패키지 의존성을 함께 확인하고, 복원 절차가 달라지면 README를 갱신합니다. 실제 WezTerm 설정을 바꿨다면 `shared/wezterm.lua`에도 공유할 내용을 반영하고, 원격에서 변경을 가져오면 실제 WezTerm 설정에도 적용합니다. 실제 mise 전역 설정·PowerShell 프로필의 공유할 부분을 바꾸면 `shared/`의 복원용 사본과 동기화합니다.
+- 이전 설치가 남아 있다면 새 mise 실행 파일과 설정 경로를 검증한 다음 예전 **실행 파일만** 개별 삭제합니다. `opencode uninstall`은 설정·세션 데이터를 함께 삭제할 수 있으므로 이전 설치 정리에 사용하지 않습니다. 현재 실행 중인 OpenCode와 공유 서비스는 안전하게 종료한 뒤 정리합니다.
 - 변경 범위를 검토한 뒤 관련 파일만 커밋합니다. fetch 후 충돌과 기존 미커밋 작업을 보존하면서 병합하고 push합니다. 강제 푸시, `reset --hard`, 인증·서비스·DB·캐시·설치물 추가는 하지 않습니다.
 - 백로그는 `skills/personal-backlog/SKILL.md`를 따릅니다. 다른 컴퓨터로 대화를 전달할 때만 `skills/session-handoff/SKILL.md`를 따르며, 원문을 원격 Git에 올리기 전 저장소의 공개 범위를 반드시 확인합니다. 대화 전송은 프로젝트 코드나 미커밋 파일을 옮기지 않습니다.
