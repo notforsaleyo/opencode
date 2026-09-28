@@ -1,4 +1,4 @@
 [tools]
-node = "24.19.0"
-"npm:@fission-ai/openspec" = "1.13.2"
+node = "latest"
+"npm:@fission-ai/openspec" = "latest"
 python = "latest"
