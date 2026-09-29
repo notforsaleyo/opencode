@@ -2,12 +2,29 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
--- Shared font and sizes; executable paths may vary by machine.
+-- Shared defaults; optional per-machine overrides live beside .wezterm.lua.
 local baseFont = { '움돋모노12' }
 local fontSize = 12.0
 local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
 local sublimeEditor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
 
+-- Load per-machine overrides from .wezterm.local.lua if it exists.
+local localPath = wezterm.config_dir .. '/.wezterm.local.lua'
+local localFile = io.open(localPath, 'r')
+if localFile then
+  localFile:close()
+  local localSettings = dofile(localPath)
+  if type(localSettings) ~= 'table' then
+    error('.wezterm.local.lua must return a table')
+  end
+  baseFont = localSettings.baseFont or baseFont
+  fontSize = localSettings.fontSize or fontSize
+  powershell = localSettings.powershell or powershell
+  sublimeEditor = localSettings.sublimeEditor or sublimeEditor
+  wezterm.add_to_config_reload_watch_list(localPath)
+end
+
+-- Apply the settings.
 config.font = wezterm.font_with_fallback(baseFont)
 config.font_rules = {
   {

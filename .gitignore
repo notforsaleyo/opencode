@@ -46,6 +46,7 @@ tmp/
 Thumbs.db
 
 # Credentials and local overrides.
+.wezterm.local.lua
 .env
 .env.*
 auth.json
