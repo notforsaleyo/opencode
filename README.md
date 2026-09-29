@@ -15,7 +15,7 @@ Windows에서 직접 실행하는 **OpenCode V2 TUI**와 WezTerm의 개인 환�
 
 ## 다른 Windows 컴퓨터에서 복원
 
-Git과 mise를 설치한 뒤 저장소의 mise 설정으로 Windows용 OpenCode V2 CLI(데스크톱 앱 아님)·Node.js·OpenSpec·Python을 설치합니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `CodexMono EA` 글꼴도 필요한 경우 별도로 설치합니다. 프롬프트 외부 편집기로 Sublime Text를 사용하며 `C:\Program Files\Sublime Text\subl.exe` 경로를 가정합니다.
+Git과 mise를 설치한 뒤 저장소의 mise 설정으로 Windows용 OpenCode V2 CLI(데스크톱 앱 아님)·Node.js·OpenSpec·Python을 설치합니다. OpenCode 모델 로그인과 GitHub 인증은 각 컴퓨터에서 따로 수행합니다. WezTerm 자체와 `Cascadia Code`·`움돋모노16` 글꼴도 필요한 경우 별도로 설치합니다. 프롬프트 외부 편집기로 Sublime Text를 사용하며 `C:\Program Files\Sublime Text\subl.exe` 경로를 가정합니다.
 
 > https://github.com/notforsaleyo/opencode.git 저장소를 받아 README의 Windows 네이티브 환경 복원 지침을 적용해 주세요. 기존 로컬 설정을 보존하고 실제 전역 설정 폴더를 Git 작업 폴더로 만들어 주세요.
 

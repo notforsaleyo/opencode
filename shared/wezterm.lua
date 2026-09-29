@@ -2,8 +2,18 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font_with_fallback { 'CodexMono EA' }
-config.font_size = 13.0
+config.font = wezterm.font_with_fallback { 'Cascadia Code', '움돋모노16' }
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font_with_fallback(
+      { 'Cascadia Code', '움돋모노16'},
+      { weight = 'Bold' }
+    ),
+  },
+}
+config.font_size = 12.0
 
 config.color_scheme = 'zenbones'
 config.colors = {
@@ -54,8 +64,8 @@ config.use_fancy_tab_bar = true
 config.tab_max_width = 48
 config.tab_bar_at_bottom = true
 config.window_frame = {
-  font = wezterm.font_with_fallback { 'CodexMono EA' },
-  font_size = 13.0,
+  font = wezterm.font_with_fallback { 'Cascadia Code', '움돋모노16' },
+  font_size = 12.0,
   active_titlebar_bg = '#d8dee8',
   inactive_titlebar_bg = '#d8dee8',
 }
