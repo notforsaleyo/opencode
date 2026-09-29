@@ -15,6 +15,13 @@
 !/agents/
 !/themes/
 
+# MCP definitions are machine-local and are never part of the settings backup.
+mcp/
+mcp.json
+mcp.jsonc
+.mcp.json
+.mcp.jsonc
+
 # Temporary handoffs contain only these two authored/exported JSON files.
 /handoff/*
 !/handoff/*/

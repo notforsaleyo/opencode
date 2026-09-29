@@ -2,55 +2,32 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font_with_fallback { 'Cascadia Code', '움돋모노16' }
+-- Machine-specific fonts, sizes, and executable paths.
+local baseFont = { '움돋모노12' }
+local fontSize = 12.0
+local tabFontSize = 14.0
+local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
+local sublimeEditor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
+
+config.font = wezterm.font_with_fallback(baseFont)
 config.font_rules = {
   {
     intensity = 'Bold',
     italic = false,
     font = wezterm.font_with_fallback(
-      { 'Cascadia Code', '움돋모노16'},
+      baseFont,
       { weight = 'Bold' }
     ),
   },
 }
-config.font_size = 12.0
+config.font_size = fontSize
 
 config.color_scheme = 'zenbones'
-config.colors = {
-  tab_bar = {
-    background = '#d8dee8',
-    active_tab = {
-      bg_color = '#c5ddf5',
-      fg_color = '#163b61',
-      intensity = 'Bold',
-    },
-    inactive_tab = {
-      bg_color = '#e7ebf1',
-      fg_color = '#465365',
-    },
-    inactive_tab_hover = {
-      bg_color = '#d5e3f2',
-      fg_color = '#243f5c',
-      italic = false,
-    },
-    new_tab = {
-      bg_color = '#d8dee8',
-      fg_color = '#465365',
-    },
-    new_tab_hover = {
-      bg_color = '#c5ddf5',
-      fg_color = '#163b61',
-      italic = false,
-    },
-  },
-}
 
 config.window_background_opacity = 1
 
 -- Start local PowerShell by default.
-local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
-local sublime_editor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
-config.set_environment_variables = { EDITOR = sublime_editor, VISUAL = sublime_editor }
+config.set_environment_variables = { EDITOR = sublimeEditor, VISUAL = sublimeEditor }
 config.default_prog = { powershell, '-NoLogo' }
 config.launch_menu = {
   {
@@ -64,38 +41,15 @@ config.use_fancy_tab_bar = true
 config.tab_max_width = 48
 config.tab_bar_at_bottom = true
 config.window_frame = {
-  font = wezterm.font_with_fallback { 'Cascadia Code', '움돋모노16' },
-  font_size = 12.0,
-  active_titlebar_bg = '#d8dee8',
-  inactive_titlebar_bg = '#d8dee8',
+  font = wezterm.font_with_fallback(baseFont),
+  font_size = tabFontSize,
 }
 
-wezterm.on('format-tab-title', function(tab)
-  local pane = tab.active_pane
-  local title = tab.tab_title
-  if not title or title == '' then
-    if (pane.title or ''):match('^OC |') then
-      title = 'OC'
-    else
-      local process = (pane.foreground_process_name or ''):match('([^/\\]+)$') or ''
-      local names = { ['pwsh.exe'] = 'PowerShell', ['powershell.exe'] = 'PowerShell' }
-      title = names[process] or process:gsub('%.exe$', '')
-      if title == '' then title = pane.title or 'Terminal' end
-    end
-    local cwd = pane.current_working_dir
-    local folder = cwd and cwd.file_path:gsub('[/\\]+$', ''):match('([^/\\]+)$')
-    if folder then
-      title = title .. '/' .. folder
-    end
-  end
-  return ' ' .. (tab.tab_index + 1) .. ' ' .. wezterm.truncate_right(title, 48) .. ' '
-end)
-
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+  left = 1,
+  right = 1,
+  top = 1,
+  bottom = 1,
 }
 
 config.keys = {
