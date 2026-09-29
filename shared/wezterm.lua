@@ -2,10 +2,9 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
--- Machine-specific fonts, sizes, and executable paths.
+-- Shared font and sizes; executable paths may vary by machine.
 local baseFont = { '움돋모노12' }
 local fontSize = 12.0
-local tabFontSize = 14.0
 local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
 local sublimeEditor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
 
@@ -42,7 +41,7 @@ config.tab_max_width = 48
 config.tab_bar_at_bottom = true
 config.window_frame = {
   font = wezterm.font_with_fallback(baseFont),
-  font_size = tabFontSize,
+  font_size = fontSize,
 }
 
 config.window_padding = {
