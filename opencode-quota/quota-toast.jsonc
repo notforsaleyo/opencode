@@ -8,6 +8,9 @@
   // Show TUI slash command reports (/quota, /tokens_*) in a popup dialog.
   "tuiCommandDisplay": "dialog",
 
-  // Show the compact quota line below the session prompt.
-  "tuiCompactStatus": { "enabled": true, "homeBottom": true, "sessionPrompt": true },
+  // Show the compact quota line at the bottom of Home only.
+  "tuiCompactStatus": { "enabled": true, "homeBottom": true, "sessionPrompt": false },
+
+  // Show one main quota row as a bar below the prompt (replaces the compact line there).
+  "tuiPromptBar": { "enabled": true },
 }
