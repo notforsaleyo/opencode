@@ -5,6 +5,9 @@
   // Show only the provider of the model currently in use.
   "onlyCurrentModel": true,
 
-  // Keep TUI slash command reports (/quota, /tokens_*) in the chat instead of a popup.
-  "tuiCommandDisplay": "inline",
+  // Show TUI slash command reports (/quota, /tokens_*) in a popup dialog.
+  "tuiCommandDisplay": "dialog",
+
+  // Show the compact quota line below the session prompt.
+  "tuiCompactStatus": { "enabled": true, "homeBottom": true, "sessionPrompt": true },
 }
