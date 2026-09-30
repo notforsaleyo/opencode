@@ -1,4 +1,7 @@
 {
+  // Disable popup quota notifications entirely.
+  "enableToast": false,
+
   // Show only the provider of the model currently in use.
   "onlyCurrentModel": true,
 
