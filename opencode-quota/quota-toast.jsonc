@@ -1,0 +1,7 @@
+{
+  // Show only the provider of the model currently in use.
+  "onlyCurrentModel": true,
+
+  // Keep TUI slash command reports (/quota, /tokens_*) in the chat instead of a popup.
+  "tuiCommandDisplay": "inline",
+}
