@@ -1,6 +1,7 @@
 [tools]
 node = "latest"
 "npm:@fission-ai/openspec" = "latest"
+"npm:@openai/codex" = "latest"
 "npm:@opencode/cli" = { version = "latest", allow_builds = ["@opencode/cli"] }
 python = "latest"
 
