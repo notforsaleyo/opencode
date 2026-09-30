@@ -29,8 +29,3 @@ WezTerm의 실제 `.wezterm.lua`는 같은 폴더의 선택적 `.wezterm.local.l
 
 에이전트의 작업 범위는 **설정 파일을 올바른 위치에 반영하고 요청한 Git 동기화까지 수행하는 것**입니다. OpenCode·mise·WezTerm·Obsidian·플러그인 설치, 서비스 재시작, 플러그인 로딩·단축키 동작 시험, 백로그 조회는 이 요청으로 수행하지 않습니다. 적용 후 프로그램에서 직접 확인하는 일은 사용자에게 맡깁니다.
 
-## Claude Pro/Max 인증 플러그인
-
-- `opencode.jsonc`에는 OpenCode V2용 `@ex-machina/opencode-anthropic-auth@2.0.0-next.5`가 고정 버전으로 등록되어 있습니다. OpenCode가 누락된 패키지를 자동 설치합니다. 이 패키지의 `latest` 태그는 V1용이므로 무조건 최신 태그로 바꾸지 않습니다.
-- 각 컴퓨터에서 `/connect` → `Anthropic` → `Claude Pro/Max`로 직접 로그인하고, `/models`에서 Claude 모델을 선택합니다. API 키 방식은 Pro 구독과 별도 과금입니다.
-- 비공식 구독 연결이며, Anthropic의 정책에 따라 차단이나 계정 제한이 발생할 수 있습니다. OAuth 인증 정보는 로컬 DB에 저장되며 Git 동기화 대상이 아닙니다.
