@@ -3,8 +3,7 @@
   "plugins": [
     "./custom-plugins/codex-usage-tui/node_modules/opencode-codex-usage/opencode2-plugin",
     "@tarquinen/opencode-dcp@3.2.0",
-    "@ex-machina/opencode-anthropic-auth@2.0.0-next.5",
-    "@slkiser/opencode-quota"
+    "@ex-machina/opencode-anthropic-auth@2.0.0-next.5"
   ],
   "providers": {
     "anthropic": {

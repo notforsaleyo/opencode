@@ -34,9 +34,3 @@ WezTerm의 실제 `.wezterm.lua`는 같은 폴더의 선택적 `.wezterm.local.l
 - `opencode.jsonc`에는 OpenCode V2용 `@ex-machina/opencode-anthropic-auth@2.0.0-next.5`가 고정 버전으로 등록되어 있습니다. OpenCode가 누락된 패키지를 자동 설치합니다. 이 패키지의 `latest` 태그는 V1용이므로 무조건 최신 태그로 바꾸지 않습니다.
 - 각 컴퓨터에서 `/connect` → `Anthropic` → `Claude Pro/Max`로 직접 로그인하고, `/models`에서 Claude 모델을 선택합니다. API 키 방식은 Pro 구독과 별도 과금입니다.
 - 비공식 구독 연결이며, Anthropic의 정책에 따라 차단이나 계정 제한이 발생할 수 있습니다. OAuth 인증 정보는 로컬 DB에 저장되며 Git 동기화 대상이 아닙니다.
-
-## OpenCode Quota 플러그인
-
-- `opencode.jsonc`의 `plugins`에 `@slkiser/opencode-quota`가 등록되어 있습니다. OpenCode가 누락된 패키지를 자동 설치하므로 `npx ... init`은 새로 실행하지 않아도 됩니다.
-- 플러그인 설정은 `opencode-quota/quota-toast.jsonc`이며 Git으로 공유합니다. 이 폴더의 다른 파일(예: MiMo 로그인)은 기기 전용이므로 `.gitignore`에서 제외됩니다.
-- 각 컴퓨터에서 OpenAI·Anthropic 등 조회할 프로바이더에 OpenCode로 직접 로그인해야 합니다. 플러그인이 시작할 때 감지한 인증에 맞춰 `opencode.jsonc`에 `provider` 블록을 자동으로 추가할 수 있으며, 기기별 결과이므로 그대로 커밋할지 검토합니다.

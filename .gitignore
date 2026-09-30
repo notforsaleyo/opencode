@@ -15,12 +15,6 @@
 !/agents/
 !/themes/
 
-# OpenCode Quota: share only the settings file. Other files in this folder
-# (for example a MiMo login) are machine-local credentials.
-!/opencode-quota/
-/opencode-quota/*
-!/opencode-quota/quota-toast.jsonc
-
 # MCP definitions are machine-local and are never part of the settings backup.
 mcp/
 mcp.json
