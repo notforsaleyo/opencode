@@ -19,6 +19,8 @@ opencode 설정할거 겁나 많아서 다른 컴퓨터에서 작업하는게 �
 
 WezTerm의 실제 `.wezterm.lua`는 같은 폴더의 선택적 `.wezterm.local.lua`를 읽습니다. 이 로컬 파일은 Git 동기화 대상이 아니며 `return { baseFont = { '글꼴 이름' }, fontSize = 18, powershell = '실제 pwsh.exe 경로', sublimeEditor = '"실제 subl.exe 경로" --wait' }`처럼 기기별 글꼴·크기와 외부 프로그램 경로를 지정합니다. 네 항목은 각각 선택 사항이고, 파일이나 항목이 없으면 `shared/wezterm.lua`의 기본값을 사용합니다. 로컬 오버라이드는 공유 파일을 수정하지 않습니다.
 
+공유 기본 글꼴은 `UmdotMono12 Nerd Font`입니다. `shared/fonts/`에 동봉한 Regular·Bold TTF 두 파일은 각 컴퓨터에서 직접 설치합니다. 설정 동기화는 폰트를 자동 설치하지 않습니다.
+
 "설정 가져와 줘" 또는 "설정 커밋해서 올려 줘"라고 요청하면 `skills/opencode-sync/SKILL.md`를 따릅니다.
 
 - **가져오기:** 기존 로컬 변경을 보존하면서 원격 변경을 통합하고, 공유본의 내용을 위 실제 파일에 반영합니다. 기존 PowerShell 프로필의 다른 내용은 보존합니다. 충돌하거나 어느 변경을 쓸지 불명확하면 임의로 버리지 않고 알립니다.

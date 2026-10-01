@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- Shared defaults; optional per-machine overrides live beside .wezterm.lua.
-local baseFont = { '움돋모노12' }
+local baseFont = { 'UmdotMono12 Nerd Font', '움돋모노12' }
 local fontSize = 12.0
 local powershell = wezterm.home_dir .. '/scoop/shims/pwsh.exe'
 local sublimeEditor = '"C:\\Program Files\\Sublime Text\\subl.exe" --wait'
